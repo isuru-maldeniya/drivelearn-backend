@@ -1,9 +1,8 @@
 package com.drivelearn.drivelearnbackend.Repositories.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -19,6 +18,18 @@ public class Feedback{
     private String searingBalance;
     private String cluchBalance;
     private String gear;
+    @ManyToOne
+    @JoinColumn(name = "trainer_id",referencedColumnName = "empid")
+    private Employee trainer;
+
+    @ManyToOne
+    @JoinColumn(name = "Stu_session_id",referencedColumnName = "stuSessionId")
+    private StuSession stuSession;
+
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "student_id",referencedColumnName = "stuId")
+    private Student student;
 
     public Feedback(int feedbackid, Date date, String start, String end, String reverse, String searingBalance, String cluchBalance, String gear) {
         this.feedbackid = feedbackid;

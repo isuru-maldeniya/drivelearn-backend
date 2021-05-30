@@ -1,12 +1,13 @@
 package com.drivelearn.drivelearnbackend.Repositories.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sun.javafx.beans.IDProperty;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Session {
@@ -19,6 +20,20 @@ public class Session {
     private String route;
     private Date startTime;
     private Date endTime;
+
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "tainer_id",referencedColumnName = "empid")
+    private Employee trainer;
+
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "assigner_id",referencedColumnName = "empid")
+    private Employee assigner;
+
+    @OneToMany(mappedBy = "session")
+    @JsonManagedReference
+    List<StuSession> stuSessions=new ArrayList<>();
 
     public Session() {
     }

@@ -36,6 +36,14 @@ public class Employee {
     @JsonManagedReference
     List<Installment> installmentList=new ArrayList<>();
 
+    @OneToMany(mappedBy = "trainer")
+    @JsonManagedReference
+    List<Session> trainersSessionList=new ArrayList<>();
+
+    @OneToMany(mappedBy = "assigner")
+    @JsonManagedReference
+    List<Session> assinersSessionList=new ArrayList<>();
+
     public Employee() {
     }
 

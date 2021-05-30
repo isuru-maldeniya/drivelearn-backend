@@ -1,8 +1,13 @@
 package com.drivelearn.drivelearnbackend.Repositories.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Student {
@@ -16,6 +21,10 @@ public class Student {
     private String username;
     private String password;
     private String contact;
+
+    @OneToMany(mappedBy = "student")
+    @JsonManagedReference
+    List<Feedback>feedbacks=new ArrayList<>();
 
     public Student() {
     }

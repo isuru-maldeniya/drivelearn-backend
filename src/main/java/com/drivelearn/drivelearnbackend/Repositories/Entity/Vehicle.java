@@ -1,12 +1,15 @@
 package com.drivelearn.drivelearnbackend.Repositories.Entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
 public class Vehicle {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int vechicleId;
     private String regiNumner;
     private String ChacieNumber;
