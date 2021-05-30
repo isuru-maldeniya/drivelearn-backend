@@ -1,9 +1,8 @@
 package com.drivelearn.drivelearnbackend.Repositories.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -18,6 +17,11 @@ public class Vehicle {
     private int startingMilage;
     private int status;
     private Date addedDate;
+
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "branch_id",referencedColumnName = "branchid")
+    private Branch branch;
 
     public Vehicle() {
     }

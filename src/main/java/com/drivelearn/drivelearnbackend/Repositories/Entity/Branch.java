@@ -1,5 +1,7 @@
 package com.drivelearn.drivelearnbackend.Repositories.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -14,8 +16,16 @@ public class Branch {
     private String branchName;
 
     @OneToMany(mappedBy = "branch")
+    @JsonManagedReference
     List<Employee> employeeList=new ArrayList<>();
 
+    @OneToMany(mappedBy = "branch")
+    @JsonManagedReference
+    List<Vehicle> vehicleList=new ArrayList<>();
+
+    @OneToMany(mappedBy = "branch")
+    @JsonManagedReference
+    List<Student> studentList=new ArrayList<>();
     public Branch(int branchid, String branchName) {
         this.branchid = branchid;
         this.branchName = branchName;

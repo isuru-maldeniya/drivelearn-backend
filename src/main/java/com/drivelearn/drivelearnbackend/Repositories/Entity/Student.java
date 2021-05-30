@@ -1,10 +1,9 @@
 package com.drivelearn.drivelearnbackend.Repositories.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -24,7 +23,12 @@ public class Student {
 
     @OneToMany(mappedBy = "student")
     @JsonManagedReference
-    List<Feedback>feedbacks=new ArrayList<>();
+    private List<Feedback> feedbacks=new ArrayList<>();
+
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "brnch_id",referencedColumnName = "branchid")
+    private Branch branch;
 
     public Student() {
     }
