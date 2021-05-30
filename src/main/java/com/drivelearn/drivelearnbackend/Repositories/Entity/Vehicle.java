@@ -1,9 +1,11 @@
 package com.drivelearn.drivelearnbackend.Repositories.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Vehicle {
@@ -27,6 +29,14 @@ public class Vehicle {
     @JsonBackReference
     @JoinColumn(name = "type_id",referencedColumnName = "typeId")
     private VechileType vechileType;
+
+    @OneToMany(mappedBy = "vehicle")
+    @JsonManagedReference
+    private List<Insuarance> insuaranceList;
+
+    @OneToMany(mappedBy = "vehicle")
+    @JsonManagedReference
+    private List<License> licenseList;
 
     public Vehicle() {
     }
