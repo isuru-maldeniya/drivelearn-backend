@@ -1,8 +1,11 @@
 package com.drivelearn.drivelearnbackend.Repositories.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Employee {
@@ -28,6 +31,10 @@ public class Employee {
     @JsonBackReference
     @JoinColumn(name = "branch_id", referencedColumnName = "branchid")
     private Branch branch;
+
+    @OneToMany(mappedBy = "employee")
+    @JsonManagedReference
+    List<Installment> installmentList=new ArrayList<>();
 
     public Employee() {
     }

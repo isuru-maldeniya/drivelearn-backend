@@ -1,5 +1,7 @@
 package com.drivelearn.drivelearnbackend.Repositories.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -11,7 +13,9 @@ public class Installment {
     private int installmentId;
     private double amount;
     private Date date;
+
     @ManyToOne
+    @JsonBackReference
     private Employee employee;
 
     public Installment() {
