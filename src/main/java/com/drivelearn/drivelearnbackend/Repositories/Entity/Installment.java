@@ -24,16 +24,6 @@ public class Installment {
     @JoinColumn(name = "student_id",referencedColumnName = "stuId")
     private Student student;
 
-    public Installment() {
-    }
-
-    public Installment(int installmentId, double amount, Date date) {
-        this.installmentId = installmentId;
-        this.amount = amount;
-        this.date = date;
-    }
-
-
     public int getInstallmentId() {
         return installmentId;
     }
@@ -56,5 +46,32 @@ public class Installment {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Installment(int installmentId, double amount, Date date, Employee employee, Student student) {
+        this.installmentId = installmentId;
+        this.amount = amount;
+        this.date = date;
+        this.employee = employee;
+        this.student = student;
+    }
+
+    public Installment() {
     }
 }

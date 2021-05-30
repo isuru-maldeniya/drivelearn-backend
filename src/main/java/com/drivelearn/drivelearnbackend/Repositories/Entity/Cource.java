@@ -40,11 +40,10 @@ public class Cource {
     @JsonManagedReference
     List<StuSession> sessionList=new ArrayList<>();
 
-
     public Cource() {
     }
 
-    public Cource(int courseId, Date examDate1, Date examDate2, Date examDate3, Date trailDate, Date startDate, int barcodeNumber, int status) {
+    public Cource(int courseId, Date examDate1, Date examDate2, Date examDate3, Date trailDate, Date startDate, int barcodeNumber, int status, Student student, List<VechileType> vechileTypes, List<StuSession> sessionList) {
         this.courseId = courseId;
         this.examDate1 = examDate1;
         this.examDate2 = examDate2;
@@ -53,6 +52,9 @@ public class Cource {
         this.startDate = startDate;
         this.barcodeNumber = barcodeNumber;
         this.status = status;
+        this.student = student;
+        this.vechileTypes = vechileTypes;
+        this.sessionList = sessionList;
     }
 
     public int getCourseId() {
@@ -117,5 +119,29 @@ public class Cource {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public List<VechileType> getVechileTypes() {
+        return vechileTypes;
+    }
+
+    public void setVechileTypes(List<VechileType> vechileTypes) {
+        this.vechileTypes = vechileTypes;
+    }
+
+    public List<StuSession> getSessionList() {
+        return sessionList;
+    }
+
+    public void setSessionList(List<StuSession> sessionList) {
+        this.sessionList = sessionList;
     }
 }

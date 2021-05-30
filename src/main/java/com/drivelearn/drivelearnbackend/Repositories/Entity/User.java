@@ -27,13 +27,16 @@ public class User {
     @OneToMany(mappedBy = "Sender")
     @JsonManagedReference
     List<Notification> sentMessage=new ArrayList<>();
-    public User() {
-    }
 
-    public User(int userId, int externalId, int userType) {
+    public User(int userId, int externalId, int userType, List<Notification> receivedMessageList, List<Notification> sentMessage) {
         this.userId = userId;
         this.externalId = externalId;
         this.userType = userType;
+        this.receivedMessageList = receivedMessageList;
+        this.sentMessage = sentMessage;
+    }
+
+    public User() {
     }
 
     public int getUserId() {
@@ -58,5 +61,21 @@ public class User {
 
     public void setUserType(int userType) {
         this.userType = userType;
+    }
+
+    public List<Notification> getReceivedMessageList() {
+        return receivedMessageList;
+    }
+
+    public void setReceivedMessageList(List<Notification> receivedMessageList) {
+        this.receivedMessageList = receivedMessageList;
+    }
+
+    public List<Notification> getSentMessage() {
+        return sentMessage;
+    }
+
+    public void setSentMessage(List<Notification> sentMessage) {
+        this.sentMessage = sentMessage;
     }
 }

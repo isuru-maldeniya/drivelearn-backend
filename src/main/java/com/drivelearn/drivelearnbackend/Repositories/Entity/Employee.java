@@ -47,7 +47,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(int empid, String moNumber, String emNumber, int role, String firstName, String lastName, String NID, int isActive, String username, String password, Admin admin) {
+    public Employee(int empid, String moNumber, String emNumber, int role, String firstName, String lastName, String NID, int isActive, String username, String password, Admin admin, Branch branch, List<Installment> installmentList, List<Session> trainersSessionList, List<Session> assinersSessionList) {
         this.empid = empid;
         this.moNumber = moNumber;
         this.emNumber = emNumber;
@@ -59,6 +59,10 @@ public class Employee {
         this.username = username;
         this.password = password;
         this.admin = admin;
+        this.branch = branch;
+        this.installmentList = installmentList;
+        this.trainersSessionList = trainersSessionList;
+        this.assinersSessionList = assinersSessionList;
     }
 
     public int getEmpid() {
@@ -147,5 +151,37 @@ public class Employee {
 
     public void setAdmin(Admin admin) {
         this.admin = admin;
+    }
+
+    public Branch getBranch() {
+        return branch;
+    }
+
+    public void setBranch(Branch branch) {
+        this.branch = branch;
+    }
+
+    public List<Installment> getInstallmentList() {
+        return installmentList;
+    }
+
+    public void setInstallmentList(List<Installment> installmentList) {
+        this.installmentList = installmentList;
+    }
+
+    public List<Session> getTrainersSessionList() {
+        return trainersSessionList;
+    }
+
+    public void setTrainersSessionList(List<Session> trainersSessionList) {
+        this.trainersSessionList = trainersSessionList;
+    }
+
+    public List<Session> getAssinersSessionList() {
+        return assinersSessionList;
+    }
+
+    public void setAssinersSessionList(List<Session> assinersSessionList) {
+        this.assinersSessionList = assinersSessionList;
     }
 }

@@ -34,14 +34,17 @@ public class StuSession {
     @JoinColumn(name = "student_id",referencedColumnName = "stuId")
     private Student student;
 
-
-    public StuSession() {
-    }
-
-    public StuSession(int stuSessionId, Date date, int status) {
+    public StuSession(int stuSessionId, Date date, int status, Session session, Vehicle vehicle, Cource cource, Student student) {
         this.stuSessionId = stuSessionId;
         this.date = date;
         this.status = status;
+        this.session = session;
+        this.vehicle = vehicle;
+        this.cource = cource;
+        this.student = student;
+    }
+
+    public StuSession() {
     }
 
     public int getStuSessionId() {
@@ -66,5 +69,37 @@ public class StuSession {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public Session getSession() {
+        return session;
+    }
+
+    public void setSession(Session session) {
+        this.session = session;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public Cource getCource() {
+        return cource;
+    }
+
+    public void setCource(Cource cource) {
+        this.cource = cource;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 }

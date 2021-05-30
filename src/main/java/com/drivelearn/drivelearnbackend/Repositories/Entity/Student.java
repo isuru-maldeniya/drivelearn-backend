@@ -55,7 +55,7 @@ public class Student {
     public Student() {
     }
 
-    public Student(int stuId, Date registereddate, String idnum, String address, Date dob, String username, String password, String contact) {
+    public Student(int stuId, Date registereddate, String idnum, String address, Date dob, String username, String password, String contact, List<Feedback> feedbacks, Branch branch, List<StuSession> stuSessionList, List<Cource> courceList, List<Payment> paymentList, List<VechileType> vechileTypes) {
         this.stuId = stuId;
         this.registereddate = registereddate;
         this.idnum = idnum;
@@ -64,6 +64,12 @@ public class Student {
         this.username = username;
         this.password = password;
         this.contact = contact;
+        this.feedbacks = feedbacks;
+        this.branch = branch;
+        this.stuSessionList = stuSessionList;
+        this.courceList = courceList;
+        this.paymentList = paymentList;
+        this.vechileTypes = vechileTypes;
     }
 
     public int getStuId() {
@@ -128,5 +134,53 @@ public class Student {
 
     public void setContact(String contact) {
         this.contact = contact;
+    }
+
+    public List<Feedback> getFeedbacks() {
+        return feedbacks;
+    }
+
+    public void setFeedbacks(List<Feedback> feedbacks) {
+        this.feedbacks = feedbacks;
+    }
+
+    public Branch getBranch() {
+        return branch;
+    }
+
+    public void setBranch(Branch branch) {
+        this.branch = branch;
+    }
+
+    public List<StuSession> getStuSessionList() {
+        return stuSessionList;
+    }
+
+    public void setStuSessionList(List<StuSession> stuSessionList) {
+        this.stuSessionList = stuSessionList;
+    }
+
+    public List<Cource> getCourceList() {
+        return courceList;
+    }
+
+    public void setCourceList(List<Cource> courceList) {
+        this.courceList = courceList;
+    }
+
+    public List<Payment> getPaymentList() {
+        return paymentList;
+    }
+
+    public void setPaymentList(List<Payment> paymentList) {
+        this.paymentList = paymentList;
+    }
+
+    public List<VechileType> getVechileTypes() {
+        return vechileTypes;
+    }
+
+    public void setVechileTypes(List<VechileType> vechileTypes) {
+        this.vechileTypes = vechileTypes;
     }
 }

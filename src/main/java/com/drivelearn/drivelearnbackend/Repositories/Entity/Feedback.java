@@ -31,7 +31,10 @@ public class Feedback{
     @JoinColumn(name = "student_id",referencedColumnName = "stuId")
     private Student student;
 
-    public Feedback(int feedbackid, Date date, String start, String end, String reverse, String searingBalance, String cluchBalance, String gear) {
+    public Feedback() {
+    }
+
+    public Feedback(int feedbackid, Date date, String start, String end, String reverse, String searingBalance, String cluchBalance, String gear, Employee trainer, StuSession stuSession, Student student) {
         this.feedbackid = feedbackid;
         this.date = date;
         this.start = start;
@@ -40,9 +43,9 @@ public class Feedback{
         this.searingBalance = searingBalance;
         this.cluchBalance = cluchBalance;
         this.gear = gear;
-    }
-
-    public Feedback() {
+        this.trainer = trainer;
+        this.stuSession = stuSession;
+        this.student = student;
     }
 
     public int getFeedbackid() {
@@ -107,5 +110,29 @@ public class Feedback{
 
     public void setGear(String gear) {
         this.gear = gear;
+    }
+
+    public Employee getTrainer() {
+        return trainer;
+    }
+
+    public void setTrainer(Employee trainer) {
+        this.trainer = trainer;
+    }
+
+    public StuSession getStuSession() {
+        return stuSession;
+    }
+
+    public void setStuSession(StuSession stuSession) {
+        this.stuSession = stuSession;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 }

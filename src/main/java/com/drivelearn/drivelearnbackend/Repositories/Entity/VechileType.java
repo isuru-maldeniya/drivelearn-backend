@@ -27,11 +27,13 @@ public class VechileType {
     public VechileType() {
     }
 
-    public VechileType(int typeId, int minimumTrainingTime, String typeName, String priorRequirement) {
+    public VechileType(int typeId, int minimumTrainingTime, String typeName, String priorRequirement, VehicleCategory category, List<Vehicle> vehicleList) {
         this.typeId = typeId;
         this.minimumTrainingTime = minimumTrainingTime;
         this.typeName = typeName;
         this.priorRequirement = priorRequirement;
+        this.category = category;
+        this.vehicleList = vehicleList;
     }
 
     public int getTypeId() {
@@ -64,5 +66,21 @@ public class VechileType {
 
     public void setPriorRequirement(String priorRequirement) {
         this.priorRequirement = priorRequirement;
+    }
+
+    public VehicleCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(VehicleCategory category) {
+        this.category = category;
+    }
+
+    public List<Vehicle> getVehicleList() {
+        return vehicleList;
+    }
+
+    public void setVehicleList(List<Vehicle> vehicleList) {
+        this.vehicleList = vehicleList;
     }
 }

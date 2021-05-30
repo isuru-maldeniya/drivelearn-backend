@@ -19,14 +19,14 @@ public class VehicleCategory {
     @JsonManagedReference
     private List<VechileType> vechileTypes=new ArrayList<>();
 
-
     public VehicleCategory() {
     }
 
-    public VehicleCategory(int categoryId, String categoryName, String priorRequirement) {
+    public VehicleCategory(int categoryId, String categoryName, String priorRequirement, List<VechileType> vechileTypes) {
         this.categoryId = categoryId;
         CategoryName = categoryName;
         this.priorRequirement = priorRequirement;
+        this.vechileTypes = vechileTypes;
     }
 
     public int getCategoryId() {
@@ -51,5 +51,13 @@ public class VehicleCategory {
 
     public void setPriorRequirement(String priorRequirement) {
         this.priorRequirement = priorRequirement;
+    }
+
+    public List<VechileType> getVechileTypes() {
+        return vechileTypes;
+    }
+
+    public void setVechileTypes(List<VechileType> vechileTypes) {
+        this.vechileTypes = vechileTypes;
     }
 }

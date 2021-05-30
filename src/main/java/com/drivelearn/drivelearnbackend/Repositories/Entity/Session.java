@@ -38,7 +38,7 @@ public class Session {
     public Session() {
     }
 
-    public Session(int sessionId, Date date, int status, int numOfStudent, String route, Date startTime, Date endTime) {
+    public Session(int sessionId, Date date, int status, int numOfStudent, String route, Date startTime, Date endTime, Employee trainer, Employee assigner, List<StuSession> stuSessions) {
         this.sessionId = sessionId;
         this.date = date;
         this.status = status;
@@ -46,6 +46,9 @@ public class Session {
         this.route = route;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.trainer = trainer;
+        this.assigner = assigner;
+        this.stuSessions = stuSessions;
     }
 
     public int getSessionId() {
@@ -102,5 +105,29 @@ public class Session {
 
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
+    }
+
+    public Employee getTrainer() {
+        return trainer;
+    }
+
+    public void setTrainer(Employee trainer) {
+        this.trainer = trainer;
+    }
+
+    public Employee getAssigner() {
+        return assigner;
+    }
+
+    public void setAssigner(Employee assigner) {
+        this.assigner = assigner;
+    }
+
+    public List<StuSession> getStuSessions() {
+        return stuSessions;
+    }
+
+    public void setStuSessions(List<StuSession> stuSessions) {
+        this.stuSessions = stuSessions;
     }
 }

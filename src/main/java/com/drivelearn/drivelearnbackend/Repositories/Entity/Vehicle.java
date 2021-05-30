@@ -41,7 +41,7 @@ public class Vehicle {
     public Vehicle() {
     }
 
-    public Vehicle(int vechicleId, String regiNumner, String chacieNumber, int currentLicenId, int currentInsuranceId, int startingMilage, int status, Date addedDate) {
+    public Vehicle(int vechicleId, String regiNumner, String chacieNumber, int currentLicenId, int currentInsuranceId, int startingMilage, int status, Date addedDate, Branch branch, VechileType vechileType, List<Insuarance> insuaranceList, List<License> licenseList) {
         this.vechicleId = vechicleId;
         this.regiNumner = regiNumner;
         ChacieNumber = chacieNumber;
@@ -50,6 +50,10 @@ public class Vehicle {
         this.startingMilage = startingMilage;
         this.status = status;
         this.addedDate = addedDate;
+        this.branch = branch;
+        this.vechileType = vechileType;
+        this.insuaranceList = insuaranceList;
+        this.licenseList = licenseList;
     }
 
     public int getVechicleId() {
@@ -114,5 +118,37 @@ public class Vehicle {
 
     public void setAddedDate(Date addedDate) {
         this.addedDate = addedDate;
+    }
+
+    public Branch getBranch() {
+        return branch;
+    }
+
+    public void setBranch(Branch branch) {
+        this.branch = branch;
+    }
+
+    public VechileType getVechileType() {
+        return vechileType;
+    }
+
+    public void setVechileType(VechileType vechileType) {
+        this.vechileType = vechileType;
+    }
+
+    public List<Insuarance> getInsuaranceList() {
+        return insuaranceList;
+    }
+
+    public void setInsuaranceList(List<Insuarance> insuaranceList) {
+        this.insuaranceList = insuaranceList;
+    }
+
+    public List<License> getLicenseList() {
+        return licenseList;
+    }
+
+    public void setLicenseList(List<License> licenseList) {
+        this.licenseList = licenseList;
     }
 }

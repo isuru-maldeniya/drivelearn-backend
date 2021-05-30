@@ -25,13 +25,15 @@ public class Notification {
     @JoinColumn(name = "sender_id",referencedColumnName = "userId")
     private User Sender;
 
-    public Notification(int notificationId, String message, Date date) {
+    public Notification() {
+    }
+
+    public Notification(int notificationId, String message, Date date, List<User> receiver, User sender) {
         this.notificationId = notificationId;
         this.message = message;
         this.date = date;
-    }
-
-    public Notification() {
+        this.receiver = receiver;
+        Sender = sender;
     }
 
     public int getNotificationId() {
@@ -56,5 +58,21 @@ public class Notification {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public List<User> getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(List<User> receiver) {
+        this.receiver = receiver;
+    }
+
+    public User getSender() {
+        return Sender;
+    }
+
+    public void setSender(User sender) {
+        Sender = sender;
     }
 }
