@@ -1,9 +1,8 @@
 package com.drivelearn.drivelearnbackend.Repositories.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
 
 @Entity
 public class Employee {
@@ -20,8 +19,20 @@ public class Employee {
     private int isActive;
     private String username;
     private String password;
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "admin_id",referencedColumnName = "adminId")
+    private Admin admin;
 
-    public Employee(int empid, String moNumber, String emNumber, int role, String firstName, String lastName, String NID, int isActive, String username, String password) {
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "branch_id", referencedColumnName = "branchid")
+    private Branch branch;
+
+    public Employee() {
+    }
+
+    public Employee(int empid, String moNumber, String emNumber, int role, String firstName, String lastName, String NID, int isActive, String username, String password, Admin admin) {
         this.empid = empid;
         this.moNumber = moNumber;
         this.emNumber = emNumber;
@@ -32,9 +43,7 @@ public class Employee {
         this.isActive = isActive;
         this.username = username;
         this.password = password;
-    }
-
-    public Employee() {
+        this.admin = admin;
     }
 
     public int getEmpid() {
@@ -115,5 +124,13 @@ public class Employee {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
     }
 }

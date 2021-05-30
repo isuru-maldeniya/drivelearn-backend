@@ -2,6 +2,7 @@ package com.drivelearn.drivelearnbackend.Repositories.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.util.Date;
 
 @Entity
@@ -10,6 +11,8 @@ public class Installment {
     private int installmentId;
     private double amount;
     private Date date;
+    @ManyToOne
+    private Employee employee;
 
     public Installment() {
     }

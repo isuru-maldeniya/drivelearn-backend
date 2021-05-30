@@ -2,6 +2,9 @@ package com.drivelearn.drivelearnbackend.Repositories.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Branch {
@@ -9,6 +12,9 @@ public class Branch {
     @Id
     private int branchid;
     private String branchName;
+
+    @OneToMany(mappedBy = "branch")
+    List<Employee> employeeList=new ArrayList<>();
 
     public Branch(int branchid, String branchName) {
         this.branchid = branchid;
