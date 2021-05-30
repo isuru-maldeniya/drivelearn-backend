@@ -1,7 +1,11 @@
 package com.drivelearn.drivelearnbackend.Repositories.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class VechileType {
@@ -10,6 +14,15 @@ public class VechileType {
     private int minimumTrainingTime;
     private String typeName;
     private String priorRequirement;
+
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "category_id", referencedColumnName = "categoryId")
+    private VehicleCategory category;
+
+    @OneToMany(mappedBy = "vechileType")
+    @JsonManagedReference
+    private List<Vehicle> vehicleList=new ArrayList<>();
 
     public VechileType() {
     }

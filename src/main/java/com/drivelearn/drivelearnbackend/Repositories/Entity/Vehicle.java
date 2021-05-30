@@ -23,6 +23,11 @@ public class Vehicle {
     @JoinColumn(name = "branch_id",referencedColumnName = "branchid")
     private Branch branch;
 
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "type_id",referencedColumnName = "typeId")
+    private VechileType vechileType;
+
     public Vehicle() {
     }
 

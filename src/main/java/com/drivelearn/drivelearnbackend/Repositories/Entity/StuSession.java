@@ -25,8 +25,15 @@ public class StuSession {
     private Vehicle vehicle;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "course_id",referencedColumnName = "courseId")
     private Cource cource;
+
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "student_id",referencedColumnName = "stuId")
+    private Student student;
+
 
     public StuSession() {
     }
